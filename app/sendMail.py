@@ -4,15 +4,17 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 import os
+import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
+
 def send_email(receiver_email, subject, body):
     """
     Sends an email using Gmail's SMTP server.
     """
     # Replace these with your own email and app-specific password or less-secure app password
-    sender_email = os.getenv('SENDER_EMAIL')  # Your email
-    password = os.getenv('EMAIL_PASSWORD')    # Your app-specific password
+    sender_email = st.secrets["general"]['SENDER_EMAIL']  # Your email
+    password = st.secrets["general"]['EMAIL_PASSWORD']    # Your app-specific password
     
     # Create a MIMEMultipart object to combine headers and content
     msg = MIMEMultipart()

@@ -10,7 +10,6 @@ from sentiment import analyze_sentiment
 from sendMail import send_email  # Import the email sending function
 load_dotenv()
 
-
 class Chain:
     def __init__(self):
         self.llm = ChatGroq(temperature=0, groq_api_key=st.secrets["general"]["GROQ_API_KEY"], model_name="llama-3.1-70b-versatile")
